@@ -8,8 +8,8 @@ in another classic form:
    IN GRAPHICS:   x = x + pixels
 
 Authors: David Mutchler, Vibha Alangar, Matt Boutell, Dave Fisher, Mark Hays,
-         Aaron Wilkin, their colleagues, and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         Aaron Wilkin, their colleagues, and Tim Wilson.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 
 # -----------------------------------------------------------------------------
@@ -55,7 +55,7 @@ def run_test_sum_more_cosines():
     print()
     print('--------------------------------------------------')
     print('Testing the   sum_more_cosines   function:')
-    print('--------------------------------------------------')
+
 
     # Test 1:
     expected = 0.13416  # This is APPROXIMATELY the correct answer.
@@ -65,7 +65,7 @@ def run_test_sum_more_cosines():
         print('       actual:  ', round(answer, 5))
     else:
         print('       actual:  ', answer)
-
+    print('--------------------------------------------------')
     # -------------------------------------------------------------------------
     # TODO: 2 (continued).
     # Below this comment, add 2 more test cases of your own choosing.
