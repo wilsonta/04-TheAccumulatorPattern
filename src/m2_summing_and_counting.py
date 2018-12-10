@@ -25,7 +25,7 @@ Authors: David Mutchler, Vibha Alangar, Matt Boutell, Dave Fisher, Mark Hays,
 def main():
     """ Calls the   TEST   functions in this module. """
     run_test_sum_more_cosines()
-    #run_test_count_sines_from()
+    run_test_count_sines_from()
     #run_test_count_sines_vs_cosines()
 
 
@@ -140,6 +140,36 @@ def run_test_count_sines_from():
     print('Test 1 expected:', expected)
     print('       actual:  ', answer)
 
+    # Test 2:
+    expected =2
+    answer = count_sines_from(5, 8)
+    print('Test 2 expected:', expected)
+    print('       actual:  ', answer)
+
+    # Test 1:
+    expected = 5
+    answer = count_sines_from(3, 9)
+    print('Test 1 expected:', expected)
+    print('       actual:  ', answer)
+
+    # Test 1:
+    expected = 5
+    answer = count_sines_from(3, 9)
+    print('Test 1 expected:', expected)
+    print('       actual:  ', answer)
+
+    # Test 1:
+    expected = 5
+    answer = count_sines_from(3, 9)
+    print('Test 1 expected:', expected)
+    print('       actual:  ', answer)
+
+    # Test 1:
+    expected = 5
+    answer = count_sines_from(3, 9)
+    print('Test 1 expected:', expected)
+    print('       actual:  ', answer)
+
     # -------------------------------------------------------------------------
     # TODO: 4 (continued).
     # Below this comment, add 5 more test cases of your own choosing.
@@ -165,8 +195,12 @@ def count_sines_from(m, n):
       -- count_sines_from(7, 7)  returns  0
       -- count_sines_from(9, 9)  returns  1
     """
+    import math
     count=0
-    for k in range( )
+    for k in range(n+1-m):
+        if math.sin(k)<.5:
+            count=count+1
+    return(count)
     # -------------------------------------------------------------------------
     # TODO: 5. Implement and test this function.
     #   Note that you should write its TEST function first (above).
