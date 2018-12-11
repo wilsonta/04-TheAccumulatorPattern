@@ -27,8 +27,8 @@ import rosegraphics as rg
 # -----------------------------------------------------------------------------
 def main():
     """ Calls the   TEST   functions in this module. """
-    run_test_draw_parallel_lines()
-    #run_test_draw_lines()
+    #run_test_draw_parallel_lines()
+    run_test_draw_lines()
 
 
 def run_test_draw_parallel_lines():
@@ -169,8 +169,14 @@ def draw_lines(n, point, window):
       :type point: rg.Point
       :type window: rg.RoseWindow
     """
+
     if n>2:
-        
+        for k in range(n):
+            yoffset=100-(200/(n-1))*k
+            line=rg.Line(point,rg.Point(point.x+100,point.y+yoffset))
+            line.attach_to(window)
+        window.render()
+        window.close_on_mouse_click()
     # -------------------------------------------------------------------------
     # TODO: 3. Implement and test this function.
     #          Tests have been written for you (above).
