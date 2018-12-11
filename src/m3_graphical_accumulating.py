@@ -178,7 +178,7 @@ def draw_lines(n, point, window):
         window.render()
         window.close_on_mouse_click()
     # -------------------------------------------------------------------------
-    # TODO: 3. Implement and test this function.
+    # DONE: 3. Implement and test this function.
     #          Tests have been written for you (above).
     #
     # CONSIDER using the ACCUMULATOR IN GRAPHICS pattern,
