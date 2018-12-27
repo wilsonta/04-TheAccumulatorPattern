@@ -188,6 +188,11 @@ def draw_circles_from_rectangle(m, n, rectangle, window):
       :type rectangle: rg.Rectangle
       :type window: rg.RoseWindow
     """
+    rect=rectangle
+    rect.attach_to(window)
+    for k in range(m):
+        circle=rg.Circle()
+
     # -------------------------------------------------------------------------
     # TODO: 4. Implement and test this function.
     #          Tests have been written for you (above).
