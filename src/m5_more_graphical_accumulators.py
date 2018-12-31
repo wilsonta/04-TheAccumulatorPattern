@@ -27,8 +27,8 @@ import rosegraphics as rg
 # -----------------------------------------------------------------------------
 def main():
     """ Calls the   TEST   functions in this module. """
-    run_test_draw_squares_from_circle()
-    #run_test_draw_circles_from_rectangle()
+    #run_test_draw_squares_from_circle()
+    run_test_draw_circles_from_rectangle()
     #run_test_draw_lines_from_rectangles()
 
 
@@ -133,9 +133,37 @@ def run_test_draw_circles_from_rectangle():
     print('Testing the  draw_circles_from_rectangle  function:')
     print('  See the graphics windows that pop up.')
     print('--------------------------------------------------')
+    #Test1
+    window=rg.RoseWindow(300,300)
+    rectangle=rg.Rectangle(rg.Point(200,200),rg.Point(250,250))
+    rectangle.fill_color='blue'
+    rectangle.outline_color='blue'
+    m=5
+    n=4
+    draw_circles_from_rectangle(m,n,rectangle,window)
 
+    #Test2
+    rectangle=rg.Rectangle(rg.Point(150,120),rg.Point(170,180))
+    rectangle.fill_color='green'
+    rectangle.outline_color='black'
+    m=10
+    n=3
+    draw_circles_from_rectangle(m, n, rectangle, window)
+    window.render()
+    window.close_on_mouse_click()
+
+    # Test3
+    window = rg.RoseWindow(500,500)
+    rectangle = rg.Rectangle(rg.Point(300,200), rg.Point(250,150))
+    rectangle.fill_color='red'
+    rectangle.outline_color='blue'
+    m = 8
+    n = 2
+    draw_circles_from_rectangle(m, n, rectangle, window)
+    window.render()
+    window.close_on_mouse_click()
     # -------------------------------------------------------------------------
-    # TODO: 3. Implement this TEST function.
+    # DONE: 3. Implement this TEST function.
     #   It TESTS the  draw_circles_from_rectangle  function
     #   defined below.  Include at least **   3   ** tests, of which
     #      ***  at least TWO tests are on ONE window and
@@ -190,11 +218,54 @@ def draw_circles_from_rectangle(m, n, rectangle, window):
     """
     rect=rectangle
     rect.attach_to(window)
-    for k in range(m):
-        circle=rg.Circle()
+    if rect.corner_1.x>rect.corner_2.x:
+        for k in range(m):
+            radius=abs((rect.corner_1.y-rect.corner_2.y)/2)
+            if rect.corner_1.y>rect.corner_2.y:
+                circle=rg.Circle(rg.Point(-1*(k*2+1)*(radius)+rect.corner_2.x,rect.corner_2.y+radius),radius)
+                circle.fill_color=rectangle.fill_color
+                circle.attach_to(window)
+            else:
+                circle = rg.Circle(rg.Point(-1*(k*2+1)*(radius)+rect.corner_2.x, rect.corner_1.y + radius),radius)
+        circle.fill_color=rectangle.fill_color
+        circle.attach_to(window)
+    else:
+        for k in range(m):
+            radius =abs((rect.corner_1.y - rect.corner_2.y)/2)
+            if rect.corner_1.y>rect.corner_2.y:
+                circle = rg.Circle(rg.Point(-1*(k*2+1)*(radius)+rect.corner_1.x,rect.corner_2.y+radius),radius)
+                circle.fill_color=rectangle.fill_color
+                circle.attach_to(window)
+            else:
+                circle=rg.Circle(rg.Point(-1*(k*2+1)*(radius)+rect.corner_1.x,rect.corner_1.y+radius),radius)
+            circle.fill_color=rectangle.fill_color
+            circle.attach_to(window)
+    radius=abs((rect.corner_1.x-rect.corner_2.x)/2)
+    if rect.corner_1.y>rect.corner_2.y:
+        for k in range(n):
+            if rect.corner_1.x>rect.corner_2.x:
+                circle=rg.Circle(rg.Point(rect.corner_2.x+radius,-1*(k*2+1)*(radius)+rect.corner_2.y),radius)
+                circle.outline_color=rect.outline_color
+                circle.attach_to(window)
+            else:
+                circle = rg.Circle(rg.Point(rect.corner_1.x + radius, -1 * (k * 2 + 1) * (radius) + rect.corner_2.y),radius)
+                circle.outline_color = rect.outline_color
+                circle.attach_to(window)
+    else:
+        for k in range(n):
+            if rect.corner_1.x>rect.corner_2.x:
+                circle=rg.Circle(rg.Point(rect.corner_2.x+radius,-1*(k*2+1)*(radius)+rect.corner_1.y),radius)
+                circle.outline_color=rect.outline_color
+                circle.attach_to(window)
+            else:
+                circle = rg.Circle(rg.Point(rect.corner_1.x + radius, -1 * (k * 2 + 1) * (radius) + rect.corner_1.y),radius)
+                circle.outline_color = rect.outline_color
+                circle.attach_to(window)
+
+
 
     # -------------------------------------------------------------------------
-    # TODO: 4. Implement and test this function.
+    # DONE: 4. Implement and test this function.
     #          Tests have been written for you (above).
     #
     # CONSIDER using the ACCUMULATOR IN GRAPHICS pattern,
